@@ -1,10 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Person List</title>
 </head>
 <body>
-$END$
+<h1>Person List</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Can buy alcohol?</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="entry : ${personAlcoholStatus}">
+        <td th:text="${entry.key.name}"></td>
+        <td th:text="${entry.key.age}"></td>
+        <td th:text="${entry.value}"></td>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>
