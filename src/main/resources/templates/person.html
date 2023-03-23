@@ -1,11 +1,29 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="">
 <head>
     <meta charset="UTF-8">
     <title>Person List</title>
 </head>
 <body>
 <h1>Person List</h1>
+
+<table>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Age</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr th:each="person: ${personList}">
+        <td th:text="${person.name}"></td>
+        <td th:text="${person.age}"></td>
+    </tr>
+
+    </tbody>
+</table>
+
 <table>
     <thead>
     <tr>
@@ -15,12 +33,23 @@
     </tr>
     </thead>
     <tbody>
-    <tr th:each="entry : ${personAlcoholStatus}">
-        <td th:text="${entry.key.name}"></td>
-        <td th:text="${entry.key.age}"></td>
-        <td th:text="${entry.value}"></td>
+
+    <tr th:each="person: ${personList}">
+        <td th:text="${person.name}"></td>
+        <td th:text="${person.age}"></td>
+        <td th:if="${person.age >= 18}">Du er gammel nok til at købe alkohol</td>
+        <td th:if="${person.age < 18}">Du er ikke gammel nok til at købe alkohol</td>
     </tr>
+
     </tbody>
 </table>
 </body>
+
+<!--<tr th:each="entry : ${personAlcoholStatus}">
+       <td th:text="${entry.key.name}"></td>
+       <td th:text="${entry.key.age}"></td>'
+       <td th:text="${entry.value}"></td>
+       <td th:if="${entry.key.age >= 18}">Du er gammel nok til at købe alkohol</td>
+       <td th:if="${entry.key.age < 18}">Du er ikke gammel nok til at købe alkohol</td>
+   </tr> -->
 </html>

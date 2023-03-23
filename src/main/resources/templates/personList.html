@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="">
+<head>
+  <meta charset="UTF-8">
+  <title>Person List</title>
+</head>
+<body>
+<table>
+  <tbody>
+  <!--<tr th:each="entry : ${personAlcoholStatus}">
+      <td th:text="${entry.key.name}"></td>
+      <td th:text="${entry.key.age}"></td>'
+      <td th:text="${entry.value}"></td>
+      <td th:if="${entry.key.age >= 18}">Du er gammel nok til at købe alkohol</td>
+      <td th:if="${entry.key.age < 18}">Du er ikke gammel nok til at købe alkohol</td>
+  </tr> -->
+
+  <h1 th:text="${person.name}"></h1>
+  <h1 th:text="${person.age}"></h1>
+
+  <p th:if="${person.age >= 18}"> <span th:text="${person.name}"></span> er gammel nok til at købe alkohol</p>
+  <p th:if="${person.age < 18}"> <span th:text="${person.name}"></span> er ikke gammel nok til at købe alkohol</p>
+  
+  </tbody>
+</table>
+</body>
+</html>

@@ -20,11 +20,17 @@ public class PersonRepository {
         return personList;
     }
 
-    public String canBuyAlkohol(Person person) {
-        if(person.getAge() >= 18) {
-            return "Du må godt købe alkohol";
-        } else {
-            return "Du må ikke købe alkohol";
-        }
+    public void save(Person person) {
+        personList.add(person);
     }
+
+    public Person findPerson(String name) {
+        for (Person p: personList) {
+            if (p.getName().equals(name)) {
+                return p;
+            }
+        }
+        return null;
+    }
+
 }

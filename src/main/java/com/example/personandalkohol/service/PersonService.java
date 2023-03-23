@@ -18,8 +18,12 @@ public class PersonService {
         return personRepository.findAll();
     }
 
-    public String canBuyAlkohol(Person person) {
-        return personRepository.canBuyAlkohol(person);
+    public void save(Person person) {
+        personRepository.save(person);
+    }
+
+    public Person findPerson(String name) {
+        return personRepository.findPerson(name);
     }
 
 }
